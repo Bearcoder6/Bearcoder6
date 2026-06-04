@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" role="img" aria-labelledby="title desc">
+  <title id="title">Cozy bear footer strip</title>
+  <desc id="desc">A dark blue footer strip with a bear icon and a quote about simple useful software.</desc>
+  <defs>
+    <style>
+      .text{font-family:Consolas,Monaco,monospace;fill:#e6edf3}
+      .muted{fill:#8b949e}
+    </style>
+  </defs>
+  <rect width="1200" height="120" rx="18" fill="#07111f"/>
+  <rect x="10" y="10" width="1180" height="100" rx="16" fill="#0d1b2d" stroke="#244969" stroke-width="2" stroke-dasharray="6 6"/>
+  <g transform="translate(42 29)">
+    <circle cx="31" cy="31" r="27" fill="#a76636"/>
+    <circle cx="11" cy="10" r="11" fill="#a76636"/>
+    <circle cx="51" cy="10" r="11" fill="#a76636"/>
+    <ellipse cx="31" cy="39" rx="15" ry="11" fill="#e2c5a3"/>
+    <circle cx="22" cy="29" r="3.5" fill="#201510"/>
+    <circle cx="42" cy="29" r="3.5" fill="#201510"/>
+    <circle cx="31" cy="36" r="3.5" fill="#201510"/>
+    <path d="M23 44q8 7 18 0" fill="none" stroke="#201510" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text class="text" x="120" y="56" font-size="18">"Write code that feels calm to maintain and kind to use."</text>
+  <text class="text muted" x="120" y="82" font-size="14">Thanks for visiting. May your builds be green and your coffee warm.</text>
+  <g fill="#58a6ff" opacity=".85">
+    <rect x="1004" y="30" width="6" height="6"/><rect x="1016" y="42" width="6" height="6"/><rect x="1030" y="30" width="6" height="6"/>
+  </g>
+  <g fill="#f2cc60">
+    <path d="M1094 31l6 12 14 2-10 9 2 13-12-6-12 6 2-13-10-9 14-2z"/>
+  </g>
+</svg>

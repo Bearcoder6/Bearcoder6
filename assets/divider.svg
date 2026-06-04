@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 78" role="img" aria-labelledby="title desc">
+  <title id="title">Cozy cyber divider</title>
+  <desc id="desc">A decorative dark cyber divider with small pixel stars and circuit accents.</desc>
+  <rect width="1200" height="78" rx="14" fill="#07111f"/>
+  <path d="M30 39h210l18-16 18 16h328l14 12 14-12h250l18-16 18 16h252" fill="none" stroke="#244969" stroke-width="2"/>
+  <path d="M36 40h146M298 40h234M674 40h190M940 40h124" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+  <g fill="#f2cc60">
+    <rect x="218" y="18" width="5" height="5"/><rect x="228" y="28" width="5" height="5"/><rect x="912" y="18" width="5" height="5"/><rect x="926" y="31" width="5" height="5"/>
+  </g>
+  <g fill="#9be9a8">
+    <rect x="610" y="14" width="5" height="5"/><rect x="626" y="28" width="5" height="5"/><rect x="644" y="14" width="5" height="5"/>
+  </g>
+  <text x="516" y="49" font-family="Consolas,Monaco,monospace" font-size="16" fill="#8b949e">cozy systems online</text>
+</svg>

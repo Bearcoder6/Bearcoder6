@@ -1,0 +1,38 @@
+name: Profile asset check
+
+on:
+  push:
+    paths:
+      - "README.md"
+      - "assets/**"
+      - ".github/workflows/asset-check.yml"
+  pull_request:
+    paths:
+      - "README.md"
+      - "assets/**"
+
+jobs:
+  validate-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f README.md
+          test -f assets/hero-banner.svg
+          test -f assets/bear-mood-widget.svg
+          test -f assets/divider.svg
+          test -f assets/footer-strip.svg
+
+      - name: Validate SVG XML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          for path in Path("assets").glob("*.svg"):
+              ET.parse(path)
+              print(f"ok: {path}")
+          PY

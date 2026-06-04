@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 160" role="img" aria-labelledby="title desc">
+  <title id="title">Animated bear mood cycle</title>
+  <desc id="desc">A cute pixel bear cycles through happy, focused, sleepy, excited, and love-it moods.</desc>
+  <defs>
+    <style>
+      .label{font-family:Consolas,Monaco,monospace;font-size:24px;font-weight:700;fill:#e6edf3}
+      .copy{font-family:Consolas,Monaco,monospace;font-size:15px;fill:#a9b6c7}
+      .bear{fill:#a76636}
+      .muzzle{fill:#e2c5a3}
+      .dark{fill:#201510}
+      .blue{fill:#58a6ff}
+      .gold{fill:#f2cc60}
+      .green{fill:#9be9a8}
+      .pink{fill:#ff7aa2}
+      .mood{opacity:0}
+    </style>
+  </defs>
+  <rect width="460" height="160" rx="18" fill="#07111f"/>
+  <rect x="8" y="8" width="444" height="144" rx="16" fill="#0d1b2d" stroke="#244969" stroke-width="2"/>
+
+  <g class="mood">
+    <animate attributeName="opacity" values="1;1;0;0;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+    <text class="label" x="154" y="62">Happy</text>
+    <text class="copy" x="154" y="91">All systems go.</text>
+    <rect class="bear" x="54" y="44" width="58" height="48" rx="10"/><rect class="bear" x="42" y="34" width="22" height="22" rx="6"/><rect class="bear" x="100" y="34" width="22" height="22" rx="6"/><rect class="muzzle" x="74" y="68" width="24" height="17" rx="6"/><rect class="dark" x="68" y="61" width="6" height="6"/><rect class="dark" x="94" y="61" width="6" height="6"/><path d="M77 84q10 9 20 0" fill="none" stroke="#201510" stroke-width="4" stroke-linecap="round"/><rect class="gold" x="122" y="38" width="7" height="7"/><rect class="gold" x="132" y="56" width="7" height="7"/>
+  </g>
+  <g class="mood">
+    <animate attributeName="opacity" values="0;0;1;1;0;0;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+    <text class="label" x="154" y="62">Focused</text>
+    <text class="copy" x="154" y="91">Deep in the code.</text>
+    <rect class="bear" x="54" y="44" width="58" height="48" rx="10"/><rect class="bear" x="42" y="34" width="22" height="22" rx="6"/><rect class="bear" x="100" y="34" width="22" height="22" rx="6"/><rect class="muzzle" x="74" y="68" width="24" height="17" rx="6"/><rect class="dark" x="65" y="61" width="16" height="4"/><rect class="dark" x="90" y="61" width="16" height="4"/><rect x="116" y="74" width="42" height="24" rx="4" fill="#0d1117" stroke="#58a6ff"/>
+  </g>
+  <g class="mood">
+    <animate attributeName="opacity" values="0;0;0;0;1;1;0;0;0;0" dur="10s" repeatCount="indefinite"/>
+    <text class="label" x="154" y="62">Sleepy</text>
+    <text class="copy" x="154" y="91">Recharge mode.</text>
+    <rect class="bear" x="46" y="66" width="74" height="34" rx="14"/><rect class="bear" x="36" y="58" width="22" height="22" rx="6"/><rect class="bear" x="108" y="58" width="22" height="22" rx="6"/><rect class="muzzle" x="74" y="80" width="24" height="13" rx="5"/><rect class="dark" x="62" y="76" width="16" height="3"/><rect class="dark" x="94" y="76" width="16" height="3"/><text x="123" y="50" font-family="Consolas,Monaco,monospace" font-size="17" fill="#58a6ff">Zzz</text>
+  </g>
+  <g class="mood">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;1;1;0;0" dur="10s" repeatCount="indefinite"/>
+    <text class="label" x="154" y="62">Excited</text>
+    <text class="copy" x="154" y="91">New idea unlocked.</text>
+    <rect class="bear" x="54" y="44" width="58" height="48" rx="10"/><rect class="bear" x="42" y="34" width="22" height="22" rx="6"/><rect class="bear" x="100" y="34" width="22" height="22" rx="6"/><rect class="muzzle" x="74" y="68" width="24" height="17" rx="6"/><rect class="dark" x="68" y="60" width="7" height="7"/><rect class="dark" x="96" y="60" width="7" height="7"/><path d="M130 38l8 15 16 2-12 11 3 16-15-8-14 8 3-16-12-11 16-2z" class="gold"/>
+  </g>
+  <g class="mood">
+    <animate attributeName="opacity" values="0;0;0;0;0;0;0;0;1;1" dur="10s" repeatCount="indefinite"/>
+    <text class="label" x="154" y="62">Love It</text>
+    <text class="copy" x="154" y="91">Built with care.</text>
+    <rect class="bear" x="54" y="44" width="58" height="48" rx="10"/><rect class="bear" x="42" y="34" width="22" height="22" rx="6"/><rect class="bear" x="100" y="34" width="22" height="22" rx="6"/><rect class="muzzle" x="74" y="68" width="24" height="17" rx="6"/><path d="M64 59c0-8 11-8 11 0 0-8 11-8 11 0 0 9-11 14-11 14s-11-5-11-14z" class="pink"/><path d="M88 59c0-8 11-8 11 0 0-8 11-8 11 0 0 9-11 14-11 14s-11-5-11-14z" class="pink"/><rect class="green" x="128" y="46" width="7" height="7"/>
+  </g>
+</svg>

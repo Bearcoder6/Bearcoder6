@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 80" role="img" aria-labelledby="title desc">
   <title id="title">Small bear divider</title>
   <desc id="desc">A simple decorative divider with a small bear face.</desc>
-  <line x1="24" y1="40" x2="330" y2="40" stroke="#d0d7de" stroke-width="2" stroke-linecap="round" opacity=".45"/>
-  <line x1="510" y1="40" x2="816" y2="40" stroke="#d0d7de" stroke-width="2" stroke-linecap="round" opacity=".45"/>
+  <defs>
+    <style>
+      .line{stroke:#58a6ff;stroke-width:2;stroke-linecap:round;opacity:.55}
+      .spark{animation:spark 1.6s steps(1,end) infinite}
+      @keyframes spark{0%,100%{opacity:.25}50%{opacity:1}}
+    </style>
+  </defs>
+  <line x1="24" y1="40" x2="330" y2="40" class="line"/>
+  <line x1="510" y1="40" x2="816" y2="40" class="line"/>
   <g transform="translate(360 8)">
     <circle cx="40" cy="36" r="28" fill="#a76636"/>
     <circle cx="18" cy="17" r="12" fill="#a76636"/>
@@ -15,5 +22,7 @@
     <circle cx="40" cy="40" r="3.5" fill="#1f2328"/>
     <path d="M31 48q9 7 18 0" fill="none" stroke="#1f2328" stroke-width="3" stroke-linecap="round"/>
   </g>
-  <text x="428" y="46" font-family="Consolas, Monaco, monospace" font-size="14" fill="#57606a">code &amp; learn</text>
+  <rect class="spark" x="326" y="22" width="6" height="6" fill="#ffcc66"/>
+  <rect class="spark" x="508" y="52" width="6" height="6" fill="#39d353"/>
+  <text x="428" y="46" font-family="Consolas, Monaco, monospace" font-size="14" fill="#58a6ff">code &amp; learn</text>
 </svg>

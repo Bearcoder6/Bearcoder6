@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+  <title id="title">Animated arcade bear coding banner</title>
+  <desc id="desc">A retro arcade style banner with a pixel bear coding at a terminal.</desc>
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.52" stop-color="#101827"/>
+      <stop offset="1" stop-color="#091b2e"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .frame{fill:url(#screen);stroke:#30363d;stroke-width:2}
+      .grid{stroke:#1f6feb;stroke-width:1;opacity:.22}
+      .txt{font-family:Consolas,Monaco,monospace;fill:#c9d1d9}
+      .muted{fill:#8b949e}
+      .green{fill:#39d353}
+      .cyan{fill:#58a6ff}
+      .gold{fill:#ffcc66}
+      .pink{fill:#ff7bba}
+      .bear{fill:#a66a3f}
+      .ear{fill:#7a4328}
+      .muzzle{fill:#e6c7a5}
+      .dark{fill:#1f2328}
+      .blink{animation:blink 3s steps(1,end) infinite}
+      .cursor{animation:cursor 1s steps(1,end) infinite}
+      .float{animation:float 2.8s ease-in-out infinite}
+      .bar1{animation:pulse 1.6s ease-in-out infinite}
+      .bar2{animation:pulse 1.6s ease-in-out .25s infinite}
+      .bar3{animation:pulse 1.6s ease-in-out .5s infinite}
+      @keyframes blink{0%,88%,100%{opacity:1}89%,94%{opacity:0}}
+      @keyframes cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
+      @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+      @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+    </style>
+  </defs>
+  <rect x="8" y="8" width="744" height="164" rx="18" class="frame"/>
+  <path class="grid" d="M30 42h700M30 72h700M30 102h700M30 132h700M60 24v132M110 24v132M160 24v132M210 24v132M260 24v132M310 24v132M360 24v132M410 24v132M460 24v132M510 24v132M560 24v132M610 24v132M660 24v132M710 24v132"/>
+
+  <g transform="translate(40 35)">
+    <text class="txt" x="0" y="18" font-size="18">YIXIANG YIN</text>
+    <text class="txt muted" x="0" y="46" font-size="14">&gt; AI Agents / MLLMs / Machine Learning</text>
+    <text class="txt" x="0" y="82" font-size="15">quest: learn - build - iterate<tspan class="cursor">_</tspan></text>
+    <rect x="0" y="106" width="140" height="10" rx="5" fill="#21262d"/>
+    <rect class="green bar1" x="0" y="106" width="58" height="10" rx="5"/>
+    <rect x="0" y="126" width="180" height="10" rx="5" fill="#21262d"/>
+    <rect class="cyan bar2" x="0" y="126" width="92" height="10" rx="5"/>
+  </g>
+
+  <g transform="translate(505 38)">
+  <g class="float">
+    <rect x="0" y="55" width="145" height="80" rx="10" fill="#0d1117" stroke="#58a6ff" stroke-width="2" filter="url(#glow)"/>
+    <rect x="16" y="70" width="74" height="6" rx="3" class="green"/>
+    <rect x="16" y="86" width="104" height="6" rx="3" class="cyan"/>
+    <rect x="16" y="102" width="55" height="6" rx="3" class="gold"/>
+    <rect x="16" y="118" width="94" height="6" rx="3" fill="#30363d"/>
+
+    <circle cx="-35" cy="44" r="31" class="bear"/>
+    <circle cx="-57" cy="23" r="12" class="bear"/>
+    <circle cx="-13" cy="23" r="12" class="bear"/>
+    <circle cx="-57" cy="23" r="6" class="ear"/>
+    <circle cx="-13" cy="23" r="6" class="ear"/>
+    <ellipse cx="-35" cy="53" rx="16" ry="11" class="muzzle"/>
+    <rect class="dark blink" x="-46" y="39" width="6" height="6" rx="2"/>
+    <rect class="dark blink" x="-28" y="39" width="6" height="6" rx="2"/>
+    <rect class="dark" x="-38" y="49" width="6" height="5" rx="2"/>
+    <path d="M-46 60q11 8 22 0" fill="none" stroke="#1f2328" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-64" y="74" width="54" height="36" rx="8" class="bear"/>
+    <rect x="-18" y="84" width="26" height="12" rx="6" class="bear"/>
+  </g>
+  </g>
+
+  <g filter="url(#glow)">
+    <rect class="gold bar1" x="690" y="42" width="7" height="7"/>
+    <rect class="cyan bar2" x="710" y="62" width="7" height="7"/>
+    <rect class="pink bar3" x="680" y="96" width="7" height="7"/>
+    <rect class="green bar2" x="706" y="126" width="7" height="7"/>
+  </g>
+</svg>

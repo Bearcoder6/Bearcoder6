@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 150" role="img" aria-labelledby="title desc">
+  <title id="title">Animated pixel bear terminal companion</title>
+  <desc id="desc">A small pixel bear beside a retro terminal with a blinking cursor.</desc>
+  <defs>
+    <style>
+      .panel{fill:#0d1117;stroke:#30363d;stroke-width:2}
+      .txt{font-family:Consolas,Monaco,monospace;fill:#c9d1d9}
+      .green{fill:#39d353}.cyan{fill:#58a6ff}.gold{fill:#ffcc66}
+      .bear{fill:#a66a3f}.ear{fill:#7a4328}.muzzle{fill:#e6c7a5}.dark{fill:#1f2328}
+      .cursor{animation:cursor 1s steps(1,end) infinite}
+      .paw{animation:paw .9s ease-in-out infinite alternate;transform-origin:93px 88px}
+      .spark{animation:spark 1.8s steps(1,end) infinite}
+      @keyframes cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
+      @keyframes paw{from{transform:rotate(-5deg)}to{transform:rotate(8deg)}}
+      @keyframes spark{0%,100%{opacity:.25}50%{opacity:1}}
+    </style>
+  </defs>
+  <rect x="8" y="8" width="604" height="134" rx="12" class="panel"/>
+  <g transform="translate(38 30)">
+    <circle cx="44" cy="40" r="28" class="bear"/>
+    <circle cx="24" cy="19" r="11" class="bear"/>
+    <circle cx="64" cy="19" r="11" class="bear"/>
+    <circle cx="24" cy="19" r="5" class="ear"/>
+    <circle cx="64" cy="19" r="5" class="ear"/>
+    <ellipse cx="44" cy="48" rx="15" ry="10" class="muzzle"/>
+    <rect x="34" y="36" width="5" height="5" rx="2" class="dark"/>
+    <rect x="50" y="36" width="5" height="5" rx="2" class="dark"/>
+    <rect x="41" y="44" width="6" height="5" rx="2" class="dark"/>
+    <rect x="22" y="68" width="52" height="34" rx="8" class="bear"/>
+    <rect class="bear paw" x="72" y="76" width="28" height="12" rx="6"/>
+  </g>
+  <g transform="translate(150 30)">
+    <rect x="0" y="0" width="410" height="90" rx="8" fill="#010409" stroke="#21262d"/>
+    <text class="txt" x="18" y="26" font-size="14">$ ./learn --topic agents</text>
+    <text class="txt" x="18" y="52" font-size="14">&gt; reading papers</text>
+    <text class="txt" x="18" y="76" font-size="14">&gt; building small demos<tspan class="cursor">_</tspan></text>
+  </g>
+  <rect class="green spark" x="552" y="35" width="6" height="6"/>
+  <rect class="cyan spark" x="568" y="54" width="6" height="6"/>
+  <rect class="gold spark" x="548" y="80" width="6" height="6"/>
+</svg>

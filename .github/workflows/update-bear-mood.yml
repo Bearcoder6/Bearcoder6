@@ -32,13 +32,13 @@ jobs:
 
       - name: Commit only when the mood asset changed
         run: |
-          if [ -z "$(git status --porcelain -- assets/bear-mood-cycle.svg)" ]; then
+          if [ -z "$(git status --porcelain -- assets/bear-mood-pixel.svg)" ]; then
             echo "Bear mood asset did not change. No commit needed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/bear-mood-cycle.svg
+          git add assets/bear-mood-pixel.svg
           git commit -m "Update bear mood widget"
           git push

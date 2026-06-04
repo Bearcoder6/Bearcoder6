@@ -23,7 +23,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/bear-mood-cycle.svg" alt="Daily bear mood widget" width="760" />
+  <img src="./assets/bear-mood-pixel.svg" alt="Daily pixel bear mood widget" width="760" />
 </p>
 
 ### About

@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  <img src="./assets/arcade-activity-board.svg" alt="Retro arcade style learning activity board" width="760" />
+  <img src="./assets/research-console-radar.svg" alt="Cozy terminal timeline and research radar" width="760" />
 </p>
 
 <p align="center">

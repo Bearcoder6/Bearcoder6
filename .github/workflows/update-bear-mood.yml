@@ -1,0 +1,44 @@
+name: Update bear mood widget
+
+on:
+  schedule:
+    # Runs once per day. GitHub schedules use UTC time.
+    - cron: "23 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-bear-mood:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Wait a small random delay
+        run: |
+          delay=$(( RANDOM % 1800 ))
+          echo "Sleeping for ${delay}s before updating the bear mood."
+          sleep "$delay"
+
+      - name: Generate bear mood SVG
+        run: python scripts/update-bear-mood.py
+
+      - name: Commit only when the mood asset changed
+        run: |
+          if [ -z "$(git status --porcelain -- assets/bear-mood-cycle.svg)" ]; then
+            echo "Bear mood asset did not change. No commit needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/bear-mood-cycle.svg
+          git commit -m "Update bear mood widget"
+          git push

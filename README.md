@@ -22,6 +22,10 @@
   <img src="./assets/arcade-activity-board.svg" alt="Retro arcade style learning activity board" width="760" />
 </p>
 
+<p align="center">
+  <img src="./assets/bear-mood-cycle.svg" alt="Daily bear mood widget" width="760" />
+</p>
+
 ### About
 
 I am YIXIANG YIN, an undergraduate student from China. I am currently exploring how AI systems are built, especially AI Agents, multimodal large language models, and machine learning fundamentals.

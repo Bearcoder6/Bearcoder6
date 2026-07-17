@@ -60,10 +60,10 @@ def render_arcade_bear(avatar: str) -> str:
     </style>
   </defs>
 
-  <rect x="8" y="8" width="744" height="204" rx="20" fill="url(#panel)" stroke="#30363d" stroke-width="2"/>
-  <rect x="8" y="8" width="744" height="204" rx="20" fill="url(#halo)"/>
+  <rect x="8" y="8" width="744" height="204" rx="18" fill="url(#panel)" stroke="#30363d" stroke-width="2"/>
+  <rect x="8" y="8" width="744" height="204" rx="18" fill="url(#halo)"/>
   <path class="grid" d="M34 42h692M34 78h692M34 114h692M34 150h692M34 186h692M70 26v188M122 26v188M174 26v188M226 26v188M278 26v188M330 26v188M382 26v188M434 26v188M486 26v188M538 26v188M590 26v188M642 26v188M694 26v188"/>
-  <rect class="scan" x="0" y="10" width="95" height="200" fill="#58a6ff" opacity=".035"/>
+  <rect class="scan" x="0" y="10" width="95" height="200" fill="#58a6ff" opacity=".025"/>
 
   <g class="float">
     <circle cx="154" cy="110" r="88" fill="#0d1117" stroke="#58a6ff" stroke-width="2" filter="url(#glow)"/>
@@ -73,16 +73,15 @@ def render_arcade_bear(avatar: str) -> str:
   </g>
 
   <g transform="translate(305 56)">
-    <text class="txt" x="0" y="0" font-size="14" fill="#58a6ff">COZY CYBER BEAR</text>
+    <text class="txt" x="0" y="0" font-size="14" fill="#58a6ff">BEARCODER6 / RESEARCH LOG</text>
     <text class="txt" x="0" y="42" font-size="30" font-weight="700">YIXIANG YIN</text>
     <text class="txt muted" x="0" y="75" font-size="16">AI Agents / MLLMs / Machine Learning</text>
     <text class="txt" x="0" y="116" font-size="15">&gt; learn, build, iterate<tspan class="cursor">_</tspan></text>
     <path class="line" d="M0 138h150M166 138h26M210 138h128"/>
   </g>
 
-  <rect class="spark" x="684" y="44" width="8" height="8" fill="#39d353"/>
-  <rect class="spark" x="710" y="76" width="8" height="8" fill="#58a6ff"/>
-  <rect class="spark" x="670" y="142" width="8" height="8" fill="#ffcc66"/>
+  <path class="spark" d="M682 48h30M698 42v12" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M684 144h24" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
 </svg>
 """
 
@@ -106,19 +105,18 @@ def render_bear_terminal(avatar: str) -> str:
       @keyframes pulse{{0%,100%{{opacity:.35}}50%{{opacity:1}}}}
     </style>
   </defs>
-  <rect x="8" y="8" width="604" height="154" rx="14" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
+  <rect x="8" y="8" width="604" height="154" rx="18" fill="#0d1117" stroke="#30363d" stroke-width="2"/>
   <circle cx="88" cy="84" r="62" fill="#010409" stroke="#58a6ff" stroke-width="2" filter="url(#glow)"/>
   <image href="{avatar}" x="36" y="32" width="104" height="104" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
   <circle cx="88" cy="84" r="52" fill="none" stroke="#ffcc66" stroke-width="2" opacity=".72"/>
 
-  <rect x="170" y="32" width="410" height="104" rx="10" fill="#010409" stroke="#21262d"/>
+  <rect x="170" y="32" width="410" height="104" rx="12" fill="#010409" stroke="#21262d"/>
   <text class="txt muted" x="190" y="58" font-size="13">bear@server-room ~</text>
   <text class="txt" x="190" y="84" font-size="14">$ ./study --topic agents</text>
   <text class="txt" x="190" y="109" font-size="14">&gt; reading papers</text>
   <text class="txt" x="190" y="132" font-size="14">&gt; building small demos<tspan class="cursor">_</tspan></text>
-  <rect class="pulse" x="546" y="50" width="7" height="7" fill="#39d353"/>
-  <rect class="pulse" x="562" y="72" width="7" height="7" fill="#58a6ff"/>
-  <rect class="pulse" x="532" y="116" width="7" height="7" fill="#ffcc66"/>
+  <path class="pulse" d="M532 51h34M548 45v12" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M540 116h28" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
 </svg>
 """
 
@@ -140,9 +138,7 @@ def render_divider(avatar: str) -> str:
   <circle cx="420" cy="43" r="34" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
   <image href="{avatar}" x="392" y="15" width="56" height="56" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
   <circle cx="420" cy="43" r="28" fill="none" stroke="#ffcc66" stroke-width="1.5" opacity=".8"/>
-  <rect class="spark" x="344" y="25" width="6" height="6" fill="#ffcc66"/>
-  <rect class="spark" x="490" y="57" width="6" height="6" fill="#39d353"/>
-  <text x="462" y="48" font-family="Consolas, Monaco, monospace" font-size="13" fill="#58a6ff">code &amp; learn</text>
+  <text x="462" y="48" font-family="Consolas, Monaco, monospace" font-size="13" fill="#58a6ff">code / learn</text>
 </svg>
 """
 

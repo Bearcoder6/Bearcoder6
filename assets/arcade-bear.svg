@@ -38,10 +38,10 @@
     </style>
   </defs>
 
-  <rect x="8" y="8" width="744" height="204" rx="20" fill="url(#panel)" stroke="#30363d" stroke-width="2"/>
-  <rect x="8" y="8" width="744" height="204" rx="20" fill="url(#halo)"/>
+  <rect x="8" y="8" width="744" height="204" rx="18" fill="url(#panel)" stroke="#30363d" stroke-width="2"/>
+  <rect x="8" y="8" width="744" height="204" rx="18" fill="url(#halo)"/>
   <path class="grid" d="M34 42h692M34 78h692M34 114h692M34 150h692M34 186h692M70 26v188M122 26v188M174 26v188M226 26v188M278 26v188M330 26v188M382 26v188M434 26v188M486 26v188M538 26v188M590 26v188M642 26v188M694 26v188"/>
-  <rect class="scan" x="0" y="10" width="95" height="200" fill="#58a6ff" opacity=".035"/>
+  <rect class="scan" x="0" y="10" width="95" height="200" fill="#58a6ff" opacity=".025"/>
 
   <g class="float">
     <circle cx="154" cy="110" r="88" fill="#0d1117" stroke="#58a6ff" stroke-width="2" filter="url(#glow)"/>
@@ -51,14 +51,13 @@
   </g>
 
   <g transform="translate(305 56)">
-    <text class="txt" x="0" y="0" font-size="14" fill="#58a6ff">COZY CYBER BEAR</text>
+    <text class="txt" x="0" y="0" font-size="14" fill="#58a6ff">BEARCODER6 / RESEARCH LOG</text>
     <text class="txt" x="0" y="42" font-size="30" font-weight="700">YIXIANG YIN</text>
     <text class="txt muted" x="0" y="75" font-size="16">AI Agents / MLLMs / Machine Learning</text>
     <text class="txt" x="0" y="116" font-size="15">&gt; learn, build, iterate<tspan class="cursor">_</tspan></text>
     <path class="line" d="M0 138h150M166 138h26M210 138h128"/>
   </g>
 
-  <rect class="spark" x="684" y="44" width="8" height="8" fill="#39d353"/>
-  <rect class="spark" x="710" y="76" width="8" height="8" fill="#58a6ff"/>
-  <rect class="spark" x="670" y="142" width="8" height="8" fill="#ffcc66"/>
+  <path class="spark" d="M682 48h30M698 42v12" stroke="#58a6ff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M684 144h24" stroke="#58a6ff" stroke-width="2" stroke-linecap="round" opacity=".55"/>
 </svg>

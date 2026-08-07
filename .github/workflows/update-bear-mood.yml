@@ -30,15 +30,18 @@ jobs:
       - name: Generate bear mood SVG
         run: python scripts/update-bear-mood.py
 
+      - name: Rebuild continuous profile artwork
+        run: python scripts/render-refined-bear-assets.py
+
       - name: Commit only when the mood asset changed
         run: |
-          if [ -z "$(git status --porcelain -- assets/xp-bear-mood.svg)" ]; then
+          if [ -z "$(git status --porcelain -- assets/xp-bear-mood.svg assets/xp-profile.svg)" ]; then
             echo "Bear mood asset did not change. No commit needed."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/xp-bear-mood.svg
+          git add assets/xp-bear-mood.svg assets/xp-profile.svg
           git commit -m "Update bear mood widget"
           git push

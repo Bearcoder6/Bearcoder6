@@ -14,6 +14,11 @@ def avatar_data_uri() -> str:
     return f"data:image/png;base64,{encoded}"
 
 
+def svg_data_uri(path: Path) -> str:
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:image/svg+xml;base64,{encoded}"
+
+
 def write(path: Path, content: str) -> None:
     cleaned = "\n".join(line.rstrip() for line in content.splitlines()) + "\n"
     path.write_text(cleaned, encoding="utf-8", newline="\n")
@@ -224,30 +229,59 @@ def render_research_explorer() -> str:
 
 
 def render_bear_terminal(avatar: str) -> str:
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 210" role="img" aria-labelledby="title desc">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 255" role="img" aria-labelledby="title desc">
   <title id="title">Bearcoder6 command prompt</title>
-  <desc id="desc">A compact Windows XP command prompt listing a private, minimal current workflow.</desc>
+  <desc id="desc">A compact Windows XP command prompt listing a minimal current workflow and toolkit.</desc>
   <defs>
     {shared_defs()}
     <clipPath id="terminal-avatar"><rect x="478" y="55" width="102" height="102" rx="5"/></clipPath>
   </defs>
-  <rect width="620" height="210" rx="10" fill="#d6e6ff"/>
+  <rect width="620" height="255" fill="#d6e6ff"/>
   <g filter="url(#window-shadow)">
-    <rect x="15" y="14" width="590" height="180" rx="7" fill="#0a5cd4"/>
+    <rect x="15" y="14" width="590" height="225" rx="7" fill="#0a5cd4"/>
     <rect x="19" y="18" width="582" height="27" rx="5" fill="url(#xp-title)"/>
     <rect x="27" y="24" width="15" height="14" fill="#151515" stroke="#fff"/>
     <text class="mono white" x="47" y="36" font-size="12">C:\\WINDOWS\\system32\\cmd.exe</text>
     {window_controls(529, 23)}
-    <rect x="19" y="45" width="582" height="145" fill="#111"/>
+    <rect x="19" y="45" width="582" height="190" fill="#111"/>
     <text class="mono white" x="32" y="70" font-size="13">Microsoft Windows XP [Bear Edition]</text>
     <text class="mono white" x="32" y="92" font-size="13">C:\\bearcoder6&gt; current_focus</text>
     <text class="mono" x="32" y="116" font-size="13" fill="#9fe870">  reading papers</text>
     <text class="mono" x="32" y="138" font-size="13" fill="#9fe870">  building small prototypes</text>
     <text class="mono" x="32" y="160" font-size="13" fill="#9fe870">  documenting what works</text>
-    <text class="mono white" x="32" y="182" font-size="13">C:\\bearcoder6&gt;<tspan class="blink">_</tspan></text>
+    <text class="mono white" x="32" y="188" font-size="13">C:\\bearcoder6&gt; toolkit</text>
+    <text class="mono" x="32" y="211" font-size="13" fill="#9fe870">  Python / C / C++ / Java</text>
+    <text class="mono white" x="32" y="232" font-size="13">C:\\bearcoder6&gt;<tspan class="blink">_</tspan></text>
     <rect x="473" y="50" width="112" height="112" rx="7" fill="#fff" stroke="#7f9db9" stroke-width="3"/>
     <image href="{avatar}" x="478" y="55" width="102" height="102" clip-path="url(#terminal-avatar)" preserveAspectRatio="xMidYMid slice"/>
   </g>
+</svg>
+"""
+
+
+def render_profile_composite() -> str:
+    desktop = svg_data_uri(ASSETS / "xp-desktop.svg")
+    research = svg_data_uri(ASSETS / "xp-research-explorer.svg")
+    terminal = svg_data_uri(ASSETS / "xp-command-prompt.svg")
+    mood = svg_data_uri(ASSETS / "xp-bear-mood.svg")
+    footer = svg_data_uri(ASSETS / "xp-taskbar-footer.svg")
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1153" role="img" aria-labelledby="title desc">
+  <title id="title">Continuous Windows XP inspired Bearcoder6 profile</title>
+  <desc id="desc">A single seamless profile artwork containing a desktop, research explorer, command prompt, pixel bear mood, and taskbar footer.</desc>
+  <rect width="760" height="1153" fill="#d6e6ff"/>
+  <image href="{desktop}" x="0" y="0" width="760" height="410"/>
+  <svg x="0" y="410" width="760" height="276" viewBox="0 17 760 276" overflow="hidden">
+    <image href="{research}" x="0" y="0" width="760" height="310"/>
+  </svg>
+  <svg x="70" y="686" width="620" height="225" viewBox="0 14 620 225" overflow="hidden">
+    <image href="{terminal}" x="0" y="0" width="620" height="255"/>
+  </svg>
+  <svg x="0" y="911" width="760" height="194" viewBox="0 15 760 194" overflow="hidden">
+    <image href="{mood}" x="0" y="0" width="760" height="225"/>
+  </svg>
+  <svg x="0" y="1105" width="760" height="48" viewBox="0 8 760 48" overflow="hidden">
+    <image href="{footer}" x="0" y="0" width="760" height="64"/>
+  </svg>
 </svg>
 """
 
@@ -275,6 +309,7 @@ def main() -> None:
     write(ASSETS / "xp-research-explorer.svg", render_research_explorer())
     write(ASSETS / "xp-command-prompt.svg", render_bear_terminal(avatar))
     write(ASSETS / "xp-taskbar-footer.svg", render_divider())
+    write(ASSETS / "xp-profile.svg", render_profile_composite())
 
 
 if __name__ == "__main__":

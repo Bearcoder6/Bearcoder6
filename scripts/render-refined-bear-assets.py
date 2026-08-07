@@ -1,12 +1,15 @@
 from __future__ import annotations
 
 import base64
+import hashlib
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "assets"
 AVATAR = ASSETS / "avatar-bear.png"
+README = ROOT / "README.md"
 
 
 def avatar_data_uri() -> str:
@@ -14,9 +17,29 @@ def avatar_data_uri() -> str:
     return f"data:image/png;base64,{encoded}"
 
 
-def svg_data_uri(path: Path) -> str:
-    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
-    return f"data:image/svg+xml;base64,{encoded}"
+def inline_svg_body(path: Path, prefix: str) -> str:
+    content = path.read_text(encoding="utf-8")
+    body = content[content.find(">") + 1 : content.rfind("</svg>")]
+    ids = sorted(set(re.findall(r'\bid="([^"]+)"', body)), key=len, reverse=True)
+    for original in ids:
+        namespaced = f"{prefix}-{original}"
+        body = body.replace(f'id="{original}"', f'id="{namespaced}"')
+        body = body.replace(f"url(#{original})", f"url(#{namespaced})")
+        body = body.replace(f'href="#{original}"', f'href="#{namespaced}"')
+    return body
+
+
+def sync_readme_cache_token(profile_path: Path) -> None:
+    token = hashlib.sha256(profile_path.read_bytes()).hexdigest()[:12]
+    content = README.read_text(encoding="utf-8")
+    updated = re.sub(
+        r"xp-profile\.svg(?:\?v=[0-9a-f]+)?",
+        f"xp-profile.svg?v={token}",
+        content,
+    )
+    if updated != content:
+        README.write_text(updated, encoding="utf-8", newline="\n")
+        print(f"updated README cache token: {token}")
 
 
 def write(path: Path, content: str) -> None:
@@ -260,27 +283,29 @@ def render_bear_terminal(avatar: str) -> str:
 
 
 def render_profile_composite() -> str:
-    desktop = svg_data_uri(ASSETS / "xp-desktop.svg")
-    research = svg_data_uri(ASSETS / "xp-research-explorer.svg")
-    terminal = svg_data_uri(ASSETS / "xp-command-prompt.svg")
-    mood = svg_data_uri(ASSETS / "xp-bear-mood.svg")
-    footer = svg_data_uri(ASSETS / "xp-taskbar-footer.svg")
+    desktop = inline_svg_body(ASSETS / "xp-desktop.svg", "desktop")
+    research = inline_svg_body(ASSETS / "xp-research-explorer.svg", "research")
+    terminal = inline_svg_body(ASSETS / "xp-command-prompt.svg", "terminal")
+    mood = inline_svg_body(ASSETS / "xp-bear-mood.svg", "mood")
+    footer = inline_svg_body(ASSETS / "xp-taskbar-footer.svg", "footer")
     return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1153" role="img" aria-labelledby="title desc">
   <title id="title">Continuous Windows XP inspired Bearcoder6 profile</title>
   <desc id="desc">A single seamless profile artwork containing a desktop, research explorer, command prompt, pixel bear mood, and taskbar footer.</desc>
   <rect width="760" height="1153" fill="#d6e6ff"/>
-  <image href="{desktop}" x="0" y="0" width="760" height="410"/>
+  <svg x="0" y="0" width="760" height="410" viewBox="0 0 760 410">
+    {desktop}
+  </svg>
   <svg x="0" y="410" width="760" height="276" viewBox="0 17 760 276" overflow="hidden">
-    <image href="{research}" x="0" y="0" width="760" height="310"/>
+    {research}
   </svg>
   <svg x="70" y="686" width="620" height="225" viewBox="0 14 620 225" overflow="hidden">
-    <image href="{terminal}" x="0" y="0" width="620" height="255"/>
+    {terminal}
   </svg>
   <svg x="0" y="911" width="760" height="194" viewBox="0 15 760 194" overflow="hidden">
-    <image href="{mood}" x="0" y="0" width="760" height="225"/>
+    {mood}
   </svg>
   <svg x="0" y="1105" width="760" height="48" viewBox="0 8 760 48" overflow="hidden">
-    <image href="{footer}" x="0" y="0" width="760" height="64"/>
+    {footer}
   </svg>
 </svg>
 """
@@ -309,7 +334,9 @@ def main() -> None:
     write(ASSETS / "xp-research-explorer.svg", render_research_explorer())
     write(ASSETS / "xp-command-prompt.svg", render_bear_terminal(avatar))
     write(ASSETS / "xp-taskbar-footer.svg", render_divider())
-    write(ASSETS / "xp-profile.svg", render_profile_composite())
+    profile_path = ASSETS / "xp-profile.svg"
+    write(profile_path, render_profile_composite())
+    sync_readme_cache_token(profile_path)
 
 
 if __name__ == "__main__":

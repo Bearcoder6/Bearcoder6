@@ -3,6 +3,7 @@ from __future__ import annotations
 from html import escape
 from pathlib import Path
 import random
+import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,10 +93,13 @@ def render_svg(mood: dict[str, str]) -> str:
 
 
 def main() -> None:
-    mood = random.SystemRandom().choice(MOODS)
+    previous = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else None
+    previous_match = re.search(r"<title[^>]*>Bear mood: ([^<]+)</title>", previous or "")
+    previous_name = previous_match.group(1) if previous_match else None
+    choices = [mood for mood in MOODS if mood["name"] != previous_name] or MOODS
+    mood = random.SystemRandom().choice(choices)
     svg = render_svg(mood)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    previous = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else None
     if previous == svg:
         print(f"Bear mood unchanged: {mood['name']}")
         return

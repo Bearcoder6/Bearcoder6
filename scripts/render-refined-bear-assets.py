@@ -271,10 +271,10 @@ def render_divider() -> str:
 
 def main() -> None:
     avatar = avatar_data_uri()
-    write(ASSETS / "arcade-bear.svg", render_arcade_bear(avatar))
-    write(ASSETS / "research-console-radar.svg", render_research_explorer())
-    write(ASSETS / "bear-terminal.svg", render_bear_terminal(avatar))
-    write(ASSETS / "tiny-bear-divider.svg", render_divider())
+    write(ASSETS / "xp-desktop.svg", render_arcade_bear(avatar))
+    write(ASSETS / "xp-research-explorer.svg", render_research_explorer())
+    write(ASSETS / "xp-command-prompt.svg", render_bear_terminal(avatar))
+    write(ASSETS / "xp-taskbar-footer.svg", render_divider())
 
 
 if __name__ == "__main__":

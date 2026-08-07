@@ -6,7 +6,7 @@ import random
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / "assets" / "bear-mood-pixel.svg"
+OUTPUT = ROOT / "assets" / "xp-bear-mood.svg"
 
 
 MOODS = [

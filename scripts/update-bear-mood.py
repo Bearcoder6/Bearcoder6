@@ -9,202 +9,84 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "assets" / "bear-mood-pixel.svg"
 
 
-# Edit moods here later:
-# - Add a new dictionary to include another mood.
-# - Change "message" to update the text shown in the widget.
-# - Change "accent" to adjust the neon color for that mood.
-# - Change "expression" to one of: happy, focused, sleepy, excited, love, debugging, tired.
-# Keep text short so it fits inside the GitHub README image.
 MOODS = [
-    {
-        "name": "Happy",
-        "message": "All systems feel bright today.",
-        "accent": "#58a6ff",
-        "expression": "happy",
-    },
-    {
-        "name": "Focused",
-        "message": "Deep work mode is online.",
-        "accent": "#58a6ff",
-        "expression": "focused",
-    },
-    {
-        "name": "Sleepy",
-        "message": "Recharge first, then build.",
-        "accent": "#58a6ff",
-        "expression": "sleepy",
-    },
-    {
-        "name": "Excited",
-        "message": "A new idea just unlocked.",
-        "accent": "#58a6ff",
-        "expression": "excited",
-    },
-    {
-        "name": "Love It",
-        "message": "This build has extra heart.",
-        "accent": "#58a6ff",
-        "expression": "love",
-    },
-    {
-        "name": "Debugging",
-        "message": "Tracing the bug with patience.",
-        "accent": "#58a6ff",
-        "expression": "debugging",
-    },
-    {
-        "name": "Tired",
-        "message": "Low battery, still learning.",
-        "accent": "#58a6ff",
-        "expression": "tired",
-    },
+    {"name": "Happy", "message": "A small win made the desktop brighter.", "expression": "happy"},
+    {"name": "Focused", "message": "One task, a few notes, no extra tabs.", "expression": "focused"},
+    {"name": "Sleepy", "message": "Saving progress before a proper recharge.", "expression": "sleepy"},
+    {"name": "Excited", "message": "A new idea just appeared on the desktop.", "expression": "excited"},
+    {"name": "Curious", "message": "Opening one more folder to see what is inside.", "expression": "curious"},
+    {"name": "Debugging", "message": "Following the clue, one line at a time.", "expression": "debugging"},
 ]
 
 
-def expression_svg(kind: str) -> str:
+def face(kind: str) -> str:
     if kind == "happy":
-        return """
-        <path d="M82 78h8v8h-8zM122 78h8v8h-8z" class="ink"/>
-        <path d="M87 105h8v8h8v6h16v-6h8v-8h8v8h-8v8h-8v6h-16v-6h-8v-8h-8z" class="ink"/>
-        <rect x="58" y="96" width="12" height="8" class="blush"/>
-        <rect x="142" y="96" width="12" height="8" class="blush"/>
-        """
+        return '<rect x="47" y="55" width="7" height="7" class="ink"/><rect x="79" y="55" width="7" height="7" class="ink"/><path d="M48 76h7v6h25v-6h7v7h-7v7H55v-7h-7z" class="ink"/>'
     if kind == "focused":
-        return """
-        <path d="M72 72h34v6H72zM116 72h34v6h-34z" class="ink"/>
-        <path d="M83 84h10v10H83zM127 84h10v10h-10z" class="ink"/>
-        <path d="M92 111h38v7H92z" class="ink"/>
-        <rect x="146" y="120" width="36" height="22" class="screen"/>
-        <rect x="152" y="126" width="12" height="4" class="green"/>
-        <rect x="152" y="134" width="22" height="4" class="cyan"/>
-        """
+        return '<path d="M42 52h18v5H42zm31 0h18v5H73z" class="ink"/><rect x="48" y="60" width="7" height="8" class="ink"/><rect x="79" y="60" width="7" height="8" class="ink"/><rect x="57" y="79" width="22" height="5" class="ink"/>'
     if kind == "sleepy":
-        return """
-        <path d="M76 84h30v6H76zM118 84h30v6h-30z" class="ink"/>
-        <path d="M92 112h34v6H92z" class="ink"/>
-        <text x="144" y="58" class="mini">Zzz</text>
-        <rect x="56" y="105" width="10" height="8" class="blush"/>
-        <rect x="146" y="105" width="10" height="8" class="blush"/>
-        """
+        return '<path d="M43 61h18v5H43zm30 0h18v5H73zM56 81h24v5H56z" class="ink"/><text x="91" y="31" class="mini">Zzz</text>'
     if kind == "excited":
-        return """
-        <path d="M80 76h14v14H80zM122 76h14v14h-14z" class="ink"/>
-        <path d="M91 106h36v8h8v8h-8v8H91v-8h-8v-8h8z" class="ink"/>
-        <path d="M170 40l8 16 18 2-13 12 3 18-16-9-16 9 3-18-13-12 18-2z" class="gold"/>
-        """
-    if kind == "love":
-        return """
-        <path d="M70 72h8v-8h12v8h8v12h-8v8h-8v8h-4v-8h-8v-8h-8V72z" class="heart"/>
-        <path d="M120 72h8v-8h12v8h8v12h-8v8h-8v8h-4v-8h-8v-8h-8V72z" class="heart"/>
-        <path d="M88 112h8v8h8v6h16v-6h8v-8h8v8h-8v8h-8v6h-16v-6h-8v-8h-8z" class="ink"/>
-        <rect x="152" y="96" width="9" height="9" class="heart"/>
-        """
-    if kind == "debugging":
-        return """
-        <path d="M72 78h34v6H72zM116 78h34v6h-34z" class="ink"/>
-        <path d="M83 91h10v10H83zM127 91h10v10h-10z" class="ink"/>
-        <path d="M94 118h34v6H94z" class="ink"/>
-        <path d="M158 48h8v8h8v8h-8v8h-8v-8h-8v-8h8z" class="bug"/>
-        <path d="M174 51h14v5h-14zM174 66h14v5h-14z" class="bug"/>
-        """
-    return """
-      <path d="M76 86h30v6H76zM118 86h30v6h-30z" class="ink"/>
-      <path d="M92 116h36v6H92z" class="ink"/>
-      <rect x="58" y="104" width="11" height="8" class="blush"/>
-      <rect x="143" y="104" width="11" height="8" class="blush"/>
-      <rect x="166" y="52" width="10" height="34" class="battery"/>
-      <rect x="176" y="62" width="5" height="14" class="battery"/>
-    """
+        return '<rect x="47" y="55" width="8" height="10" class="ink"/><rect x="79" y="55" width="8" height="10" class="ink"/><rect x="55" y="76" width="27" height="17" class="ink"/><rect x="62" y="82" width="13" height="11" fill="#f8dcb7"/><path d="M104 17l5 10 12 2-9 8 3 12-11-6-10 6 2-12-8-8 11-2z" fill="#f5c542"/>'
+    if kind == "curious":
+        return '<rect x="47" y="55" width="7" height="7" class="ink"/><rect x="80" y="52" width="8" height="11" class="ink"/><circle cx="68" cy="82" r="7" class="ink"/><rect x="93" y="72" width="23" height="18" fill="#fff" stroke="#7f9db9"/><path d="M98 77h13m-13 5h9" stroke="#0b5bd3" stroke-width="2"/>'
+    return '<path d="M42 53h18v5H42zm31 0h18v5H73z" class="ink"/><rect x="48" y="61" width="7" height="8" class="ink"/><rect x="79" y="61" width="7" height="8" class="ink"/><rect x="56" y="82" width="25" height="5" class="ink"/><path d="M104 24h8v8h8v8h-8v8h-8v-8h-8v-8h8z" fill="#e85a35"/>'
 
 
-def pixel_bear_svg(expression: str) -> str:
+def pixel_bear(kind: str) -> str:
     return f"""
-    <g transform="translate(54 30)" shape-rendering="crispEdges">
-      <rect x="42" y="20" width="46" height="28" class="bear"/>
-      <rect x="118" y="20" width="46" height="28" class="bear"/>
-      <rect x="50" y="28" width="28" height="20" class="ear"/>
-      <rect x="128" y="28" width="28" height="20" class="ear"/>
-      <rect x="38" y="42" width="132" height="96" class="bear"/>
-      <rect x="30" y="62" width="20" height="60" class="bear-dark"/>
-      <rect x="158" y="62" width="20" height="60" class="bear-dark"/>
-      <rect x="58" y="130" width="92" height="24" class="bear-dark"/>
-      <rect x="76" y="96" width="60" height="40" class="muzzle"/>
-      <rect x="100" y="97" width="14" height="10" class="nose"/>
-      {expression_svg(expression)}
-      <rect x="38" y="42" width="132" height="6" class="fur-hi"/>
-      <rect x="52" y="54" width="18" height="6" class="fur-hi"/>
-      <rect x="136" y="54" width="18" height="6" class="fur-shadow"/>
-    </g>
+      <g transform="translate(73 54)" class="crisp bob">
+        <rect x="25" y="13" width="30" height="25" class="fur-dark"/>
+        <rect x="77" y="13" width="30" height="25" class="fur-dark"/>
+        <rect x="18" y="28" width="96" height="77" class="fur"/>
+        <rect x="10" y="47" width="17" height="46" class="fur-dark"/>
+        <rect x="105" y="47" width="17" height="46" class="fur-dark"/>
+        <rect x="34" y="91" width="65" height="25" class="fur-dark"/>
+        <rect x="44" y="67" width="48" height="33" fill="#f8dcb7"/>
+        <rect x="62" y="67" width="13" height="9" class="ink"/>
+        {face(kind)}
+      </g>
     """
 
 
 def render_svg(mood: dict[str, str]) -> str:
     name = escape(mood["name"])
     message = escape(mood["message"])
-    accent = mood["accent"]
     expression = mood["expression"]
-
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" role="img" aria-labelledby="title desc">
-  <title id="title">Daily pixel bear mood widget: {name}</title>
-  <desc id="desc">A GitHub profile pixel bear mood widget showing the current mood as {name}.</desc>
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 225" role="img" aria-labelledby="title desc">
+  <title id="title">Bear mood: {name}</title>
+  <desc id="desc">A privacy-friendly Windows XP style pixel bear widget showing the current mood as {name}.</desc>
   <defs>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="titlebar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3f8cf3"/><stop offset=".5" stop-color="#0869e8"/><stop offset="1" stop-color="#0054c8"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#123765" flood-opacity=".38"/></filter>
     <style>
-      .panel{{fill:#0d1117;stroke:#30363d;stroke-width:2}}
-      .screen{{fill:#010409;stroke:{accent};stroke-width:2}}
-      .txt{{font-family:Consolas,Monaco,monospace;fill:#c9d1d9}}
-      .muted{{fill:#8b949e}}
-      .accent{{fill:{accent}}}
-      .accent-stroke{{stroke:{accent}}}
-      .bear{{fill:#a66a3f}}
-      .bear-dark{{fill:#7a4328}}
-      .ear{{fill:#5b2f1d}}
-      .muzzle{{fill:#e8c7a5}}
-      .nose,.ink{{fill:#1f2328}}
-      .fur-hi{{fill:#c88955;opacity:.7}}
-      .fur-shadow{{fill:#5f331f;opacity:.62}}
-      .blush{{fill:#ff9fc5;opacity:.72}}
-      .heart{{fill:#ff7bba}}
-      .gold{{fill:#ffcc66}}
-      .green{{fill:#39d353}}
-      .cyan{{fill:#58a6ff}}
-      .bug{{fill:#f97316}}
-      .battery{{fill:#8b949e}}
-      .mini{{font-family:Consolas,Monaco,monospace;font-size:17px;fill:{accent}}}
-      .stroke{{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4}}
-      .float{{animation:float 3s ease-in-out infinite}}
-      .spark{{animation:spark 1.8s steps(1,end) infinite}}
-      .cursor{{animation:cursor 1s steps(1,end) infinite}}
-      @keyframes float{{0%,100%{{transform:translateY(0)}}50%{{transform:translateY(-4px)}}}}
-      @keyframes spark{{0%,100%{{opacity:.28}}50%{{opacity:1}}}}
-      @keyframes cursor{{0%,48%{{opacity:1}}49%,100%{{opacity:0}}}}
+      .ui{{font-family:Tahoma,"MS Sans Serif",Arial,sans-serif;fill:#1f1f1f}}.white{{fill:#fff}}.blue{{fill:#174ea6}}.muted{{fill:#66758c}}
+      .crisp{{shape-rendering:crispEdges}}.fur{{fill:#a9683d}}.fur-dark{{fill:#754127}}.ink{{fill:#202020}}.mini{{font-family:"Courier New",monospace;font-size:12px;fill:#174ea6}}
+      .bob{{animation:bob 3.5s ease-in-out infinite}}.blink{{animation:blink 1s steps(1,end) infinite}}
+      @keyframes bob{{0%,100%{{transform:translate(73px,54px)}}50%{{transform:translate(73px,50px)}}}}@keyframes blink{{0%,48%{{opacity:1}}49%,100%{{opacity:0}}}}
+      @media (prefers-reduced-motion:reduce){{.bob,.blink{{animation:none}}}}
     </style>
   </defs>
-
-  <rect x="8" y="8" width="744" height="194" rx="18" class="panel"/>
-  <rect x="26" y="28" width="708" height="154" rx="14" class="screen" filter="url(#glow)"/>
-
-  <g class="float">
-    <rect x="58" y="28" width="214" height="154" rx="14" fill="#0d1117" stroke="{accent}" stroke-width="2" filter="url(#glow)"/>
-    {pixel_bear_svg(expression)}
+  <rect width="760" height="225" rx="11" fill="#d6e6ff"/>
+  <g filter="url(#shadow)">
+    <rect x="17" y="15" width="726" height="194" rx="8" fill="#0a5cd4"/>
+    <rect x="21" y="19" width="718" height="28" rx="6" fill="url(#titlebar)"/>
+    <rect x="31" y="25" width="14" height="14" fill="#fff"/><path d="M34 28h8v8h-8z" fill="#5bad3b"/>
+    <text class="ui white" x="51" y="38" font-size="13" font-weight="700">Bear Mood - Windows Messenger</text>
+    <rect x="667" y="24" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/><path d="M672 36h9" stroke="#fff" stroke-width="2"/>
+    <rect x="690" y="24" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/><rect x="695" y="29" width="9" height="8" fill="none" stroke="#fff"/>
+    <rect x="713" y="24" width="19" height="18" rx="3" fill="#e8563f" stroke="#fff"/><path d="M718 29l9 8m0-8l-9 8" stroke="#fff" stroke-width="2"/>
+    <rect x="21" y="47" width="718" height="158" fill="#ece9d8"/>
+    <rect x="37" y="61" width="213" height="126" rx="5" fill="#fff" stroke="#7f9db9"/>
+    {pixel_bear(expression)}
+    <text class="ui muted" x="283" y="85" font-size="12">TODAY'S STATUS</text>
+    <text class="ui blue" x="283" y="124" font-size="31" font-weight="700">{name}</text>
+    <text class="ui" x="283" y="153" font-size="14">{message}</text>
+    <text class="ui muted" x="283" y="181" font-size="11">updated quietly by GitHub Actions<tspan class="blink">_</tspan></text>
+    <rect x="651" y="167" width="69" height="25" fill="#ece9d8" stroke="#7f7a6e"/>
+    <rect x="654" y="170" width="63" height="19" fill="none" stroke="#fff"/>
+    <text class="ui" x="676" y="184" font-size="11">OK</text>
   </g>
-
-  <g transform="translate(330 60)">
-    <text class="txt muted" x="0" y="0" font-size="14">DAILY BEAR MOOD</text>
-    <text class="txt" x="0" y="42" font-size="34" font-weight="700">{name}</text>
-    <text class="txt muted" x="0" y="78" font-size="16">{message}</text>
-    <text class="txt" x="0" y="118" font-size="15">&gt; generated by GitHub Actions<tspan class="cursor">_</tspan></text>
-  </g>
-
-  <path class="accent-stroke spark" d="M666 48h36M684 42v12" fill="none" stroke-width="2" stroke-linecap="round"/>
-  <path class="accent-stroke" d="M662 136h32" fill="none" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-  <path d="M54 170h150M216 170h24M574 170h88" class="stroke accent-stroke" opacity=".5"/>
 </svg>
 """
 
@@ -213,13 +95,12 @@ def main() -> None:
     mood = random.SystemRandom().choice(MOODS)
     svg = render_svg(mood)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-
     previous = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else None
     if previous == svg:
         print(f"Bear mood unchanged: {mood['name']}")
         return
-
-    OUTPUT.write_text(svg, encoding="utf-8", newline="\n")
+    cleaned = "\n".join(line.rstrip() for line in svg.splitlines()) + "\n"
+    OUTPUT.write_text(cleaned, encoding="utf-8", newline="\n")
     print(f"Bear mood updated: {mood['name']}")
 
 

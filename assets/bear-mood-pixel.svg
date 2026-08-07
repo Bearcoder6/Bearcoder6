@@ -1,83 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" role="img" aria-labelledby="title desc">
-  <title id="title">Daily pixel bear mood widget: Excited</title>
-  <desc id="desc">A GitHub profile pixel bear mood widget showing the current mood as Excited.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 225" role="img" aria-labelledby="title desc">
+  <title id="title">Bear mood: Curious</title>
+  <desc id="desc">A privacy-friendly Windows XP style pixel bear widget showing the current mood as Curious.</desc>
   <defs>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="titlebar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3f8cf3"/><stop offset=".5" stop-color="#0869e8"/><stop offset="1" stop-color="#0054c8"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#123765" flood-opacity=".38"/></filter>
     <style>
-      .panel{fill:#0d1117;stroke:#30363d;stroke-width:2}
-      .screen{fill:#010409;stroke:#58a6ff;stroke-width:2}
-      .txt{font-family:Consolas,Monaco,monospace;fill:#c9d1d9}
-      .muted{fill:#8b949e}
-      .accent{fill:#58a6ff}
-      .accent-stroke{stroke:#58a6ff}
-      .bear{fill:#a66a3f}
-      .bear-dark{fill:#7a4328}
-      .ear{fill:#5b2f1d}
-      .muzzle{fill:#e8c7a5}
-      .nose,.ink{fill:#1f2328}
-      .fur-hi{fill:#c88955;opacity:.7}
-      .fur-shadow{fill:#5f331f;opacity:.62}
-      .blush{fill:#ff9fc5;opacity:.72}
-      .heart{fill:#ff7bba}
-      .gold{fill:#ffcc66}
-      .green{fill:#39d353}
-      .cyan{fill:#58a6ff}
-      .bug{fill:#f97316}
-      .battery{fill:#8b949e}
-      .mini{font-family:Consolas,Monaco,monospace;font-size:17px;fill:#58a6ff}
-      .stroke{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:4}
-      .float{animation:float 3s ease-in-out infinite}
-      .spark{animation:spark 1.8s steps(1,end) infinite}
-      .cursor{animation:cursor 1s steps(1,end) infinite}
-      @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-      @keyframes spark{0%,100%{opacity:.28}50%{opacity:1}}
-      @keyframes cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
+      .ui{font-family:Tahoma,"MS Sans Serif",Arial,sans-serif;fill:#1f1f1f}.white{fill:#fff}.blue{fill:#174ea6}.muted{fill:#66758c}
+      .crisp{shape-rendering:crispEdges}.fur{fill:#a9683d}.fur-dark{fill:#754127}.ink{fill:#202020}.mini{font-family:"Courier New",monospace;font-size:12px;fill:#174ea6}
+      .bob{animation:bob 3.5s ease-in-out infinite}.blink{animation:blink 1s steps(1,end) infinite}
+      @keyframes bob{0%,100%{transform:translate(73px,54px)}50%{transform:translate(73px,50px)}}@keyframes blink{0%,48%{opacity:1}49%,100%{opacity:0}}
+      @media (prefers-reduced-motion:reduce){.bob,.blink{animation:none}}
     </style>
   </defs>
+  <rect width="760" height="225" rx="11" fill="#d6e6ff"/>
+  <g filter="url(#shadow)">
+    <rect x="17" y="15" width="726" height="194" rx="8" fill="#0a5cd4"/>
+    <rect x="21" y="19" width="718" height="28" rx="6" fill="url(#titlebar)"/>
+    <rect x="31" y="25" width="14" height="14" fill="#fff"/><path d="M34 28h8v8h-8z" fill="#5bad3b"/>
+    <text class="ui white" x="51" y="38" font-size="13" font-weight="700">Bear Mood - Windows Messenger</text>
+    <rect x="667" y="24" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/><path d="M672 36h9" stroke="#fff" stroke-width="2"/>
+    <rect x="690" y="24" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/><rect x="695" y="29" width="9" height="8" fill="none" stroke="#fff"/>
+    <rect x="713" y="24" width="19" height="18" rx="3" fill="#e8563f" stroke="#fff"/><path d="M718 29l9 8m0-8l-9 8" stroke="#fff" stroke-width="2"/>
+    <rect x="21" y="47" width="718" height="158" fill="#ece9d8"/>
+    <rect x="37" y="61" width="213" height="126" rx="5" fill="#fff" stroke="#7f9db9"/>
 
-  <rect x="8" y="8" width="744" height="194" rx="18" class="panel"/>
-  <rect x="26" y="28" width="708" height="154" rx="14" class="screen" filter="url(#glow)"/>
+      <g transform="translate(73 54)" class="crisp bob">
+        <rect x="25" y="13" width="30" height="25" class="fur-dark"/>
+        <rect x="77" y="13" width="30" height="25" class="fur-dark"/>
+        <rect x="18" y="28" width="96" height="77" class="fur"/>
+        <rect x="10" y="47" width="17" height="46" class="fur-dark"/>
+        <rect x="105" y="47" width="17" height="46" class="fur-dark"/>
+        <rect x="34" y="91" width="65" height="25" class="fur-dark"/>
+        <rect x="44" y="67" width="48" height="33" fill="#f8dcb7"/>
+        <rect x="62" y="67" width="13" height="9" class="ink"/>
+        <rect x="47" y="55" width="7" height="7" class="ink"/><rect x="80" y="52" width="8" height="11" class="ink"/><circle cx="68" cy="82" r="7" class="ink"/><rect x="93" y="72" width="23" height="18" fill="#fff" stroke="#7f9db9"/><path d="M98 77h13m-13 5h9" stroke="#0b5bd3" stroke-width="2"/>
+      </g>
 
-  <g class="float">
-    <rect x="58" y="28" width="214" height="154" rx="14" fill="#0d1117" stroke="#58a6ff" stroke-width="2" filter="url(#glow)"/>
-    
-    <g transform="translate(54 30)" shape-rendering="crispEdges">
-      <rect x="42" y="20" width="46" height="28" class="bear"/>
-      <rect x="118" y="20" width="46" height="28" class="bear"/>
-      <rect x="50" y="28" width="28" height="20" class="ear"/>
-      <rect x="128" y="28" width="28" height="20" class="ear"/>
-      <rect x="38" y="42" width="132" height="96" class="bear"/>
-      <rect x="30" y="62" width="20" height="60" class="bear-dark"/>
-      <rect x="158" y="62" width="20" height="60" class="bear-dark"/>
-      <rect x="58" y="130" width="92" height="24" class="bear-dark"/>
-      <rect x="76" y="96" width="60" height="40" class="muzzle"/>
-      <rect x="100" y="97" width="14" height="10" class="nose"/>
-      
-        <path d="M80 76h14v14H80zM122 76h14v14h-14z" class="ink"/>
-        <path d="M91 106h36v8h8v8h-8v8H91v-8h-8v-8h8z" class="ink"/>
-        <path d="M170 40l8 16 18 2-13 12 3 18-16-9-16 9 3-18-13-12 18-2z" class="gold"/>
-        
-      <rect x="38" y="42" width="132" height="6" class="fur-hi"/>
-      <rect x="52" y="54" width="18" height="6" class="fur-hi"/>
-      <rect x="136" y="54" width="18" height="6" class="fur-shadow"/>
-    </g>
-    
+    <text class="ui muted" x="283" y="85" font-size="12">TODAY'S STATUS</text>
+    <text class="ui blue" x="283" y="124" font-size="31" font-weight="700">Curious</text>
+    <text class="ui" x="283" y="153" font-size="14">Opening one more folder to see what is inside.</text>
+    <text class="ui muted" x="283" y="181" font-size="11">updated quietly by GitHub Actions<tspan class="blink">_</tspan></text>
+    <rect x="651" y="167" width="69" height="25" fill="#ece9d8" stroke="#7f7a6e"/>
+    <rect x="654" y="170" width="63" height="19" fill="none" stroke="#fff"/>
+    <text class="ui" x="676" y="184" font-size="11">OK</text>
   </g>
-
-  <g transform="translate(330 60)">
-    <text class="txt muted" x="0" y="0" font-size="14">DAILY BEAR MOOD</text>
-    <text class="txt" x="0" y="42" font-size="34" font-weight="700">Excited</text>
-    <text class="txt muted" x="0" y="78" font-size="16">A new idea just unlocked.</text>
-    <text class="txt" x="0" y="118" font-size="15">&gt; generated by GitHub Actions<tspan class="cursor">_</tspan></text>
-  </g>
-
-  <path class="accent-stroke spark" d="M666 48h36M684 42v12" fill="none" stroke-width="2" stroke-linecap="round"/>
-  <path class="accent-stroke" d="M662 136h32" fill="none" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-  <path d="M54 170h150M216 170h24M574 170h88" class="stroke accent-stroke" opacity=".5"/>
 </svg>

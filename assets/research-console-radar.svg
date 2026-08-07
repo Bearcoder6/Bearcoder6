@@ -1,164 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 260" role="img" aria-labelledby="title desc">
-  <title id="title">Cozy terminal timeline and research radar</title>
-  <desc id="desc">A polished dynamic panel with a cozy terminal learning timeline on the left and a glowing research radar on the right.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" role="img" aria-labelledby="title desc">
+  <title id="title">Bearcoder6 research explorer</title>
+  <desc id="desc">A Windows XP Explorer window with six concise folders for current technical interests.</desc>
   <defs>
-    <linearGradient id="pageBg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0a0f1a"/>
-      <stop offset=".48" stop-color="#101827"/>
-      <stop offset="1" stop-color="#061b2d"/>
+    <linearGradient id="xp-title" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f8cf3"/>
+      <stop offset=".48" stop-color="#0869e8"/>
+      <stop offset="1" stop-color="#0054c8"/>
     </linearGradient>
-    <radialGradient id="ambient" cx="36%" cy="18%" r="72%">
-      <stop offset="0" stop-color="#58a6ff" stop-opacity=".24"/>
-      <stop offset=".46" stop-color="#58a6ff" stop-opacity=".07"/>
-      <stop offset="1" stop-color="#58a6ff" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#111c2e" stop-opacity=".94"/>
-      <stop offset=".52" stop-color="#08111f" stop-opacity=".92"/>
-      <stop offset="1" stop-color="#050a13" stop-opacity=".94"/>
+    <linearGradient id="xp-taskbar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f91f7"/>
+      <stop offset=".35" stop-color="#1269dc"/>
+      <stop offset="1" stop-color="#0751bd"/>
     </linearGradient>
-    <linearGradient id="rowGlow" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#152b45"/>
-      <stop offset=".55" stop-color="#0c1b2d"/>
-      <stop offset="1" stop-color="#08111f"/>
+    <linearGradient id="xp-start" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#62c34d"/>
+      <stop offset="1" stop-color="#27831f"/>
     </linearGradient>
-    <linearGradient id="cyanStroke" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#9cdcfe"/>
-      <stop offset=".46" stop-color="#58a6ff"/>
-      <stop offset="1" stop-color="#58a6ff"/>
+    <linearGradient id="xp-sidebar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7aa7ed"/>
+      <stop offset="1" stop-color="#c4d6f5"/>
     </linearGradient>
-    <radialGradient id="nodeGreen" cx=".35" cy=".3" r=".8">
-      <stop offset="0" stop-color="#d7ecff"/>
-      <stop offset=".4" stop-color="#58a6ff"/>
-      <stop offset="1" stop-color="#1f6feb"/>
-    </radialGradient>
-    <radialGradient id="nodeBlue" cx=".35" cy=".3" r=".8">
-      <stop offset="0" stop-color="#d7ecff"/>
-      <stop offset=".42" stop-color="#58a6ff"/>
-      <stop offset="1" stop-color="#1f6feb"/>
-    </radialGradient>
-    <radialGradient id="nodeGold" cx=".35" cy=".3" r=".8">
-      <stop offset="0" stop-color="#ffe7a1"/>
-      <stop offset=".42" stop-color="#d29922"/>
-      <stop offset="1" stop-color="#6e4300"/>
-    </radialGradient>
-    <linearGradient id="scanFill" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#58a6ff" stop-opacity=".42"/>
-      <stop offset=".64" stop-color="#58a6ff" stop-opacity=".13"/>
-      <stop offset="1" stop-color="#58a6ff" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#010409" flood-opacity=".48"/>
-    </filter>
-    <filter id="blueGlow" x="-35%" y="-35%" width="170%" height="170%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="nodeGlow" x="-80%" y="-80%" width="260%" height="260%">
-      <feGaussianBlur stdDeviation="4" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="window-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#123765" flood-opacity=".42"/>
     </filter>
     <style>
-      .txt{font-family:Consolas,Monaco,monospace;fill:#dbe7f3}
-      .muted{fill:#8b949e}
-      .fine{stroke:#58a6ff;stroke-width:1;opacity:.12}
-      .ring{fill:none;stroke:url(#cyanStroke);stroke-width:1.4;opacity:.42}
-      .axis{stroke:#58a6ff;stroke-width:1;opacity:.18}
-      .cursor{animation:cursor 1s steps(1,end) infinite}
-      .spark{animation:spark 1.8s ease-in-out infinite}
-      .rowA{animation:rowPulse 6s ease-in-out infinite}
-      .rowB{animation:rowPulse 6s ease-in-out 1.5s infinite}
-      .rowC{animation:rowPulse 6s ease-in-out 3s infinite}
-      .rowD{animation:rowPulse 6s ease-in-out 4.5s infinite}
-      @keyframes cursor{0%,48%{opacity:1}49%,100%{opacity:0}}
-      @keyframes spark{0%,100%{opacity:.35}50%{opacity:1}}
-      @keyframes rowPulse{0%,100%{opacity:.64}18%,32%{opacity:1}}
+      .ui{font-family:Tahoma,"MS Sans Serif",Arial,sans-serif;fill:#1f1f1f}
+      .mono{font-family:Consolas,"Courier New",monospace}
+      .white{fill:#fff}.muted{fill:#5d6b82}.blue{fill:#174ea6}
+      .crisp{shape-rendering:crispEdges}
+      .blink{animation:blink 1.05s steps(1,end) infinite}
+      .float{animation:float 4s ease-in-out infinite}
+      .cloud{animation:cloud 18s linear infinite}
+      @keyframes blink{0%,48%{opacity:1}49%,100%{opacity:0}}
+      @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+      @keyframes cloud{0%{transform:translateX(-24px)}100%{transform:translateX(34px)}}
+      @media (prefers-reduced-motion:reduce){.blink,.float,.cloud{animation:none}}
     </style>
-  </defs>
+    </defs>
+  <rect width="760" height="310" rx="11" fill="#d6e6ff"/>
+  <g filter="url(#window-shadow)">
+    <rect x="22" y="17" width="716" height="276" rx="8" fill="#0a5cd4"/>
+    <rect x="26" y="21" width="708" height="28" rx="6" fill="url(#xp-title)"/>
 
-  <rect x="8" y="8" width="744" height="244" rx="18" fill="url(#pageBg)" stroke="#30363d" stroke-width="2" filter="url(#softShadow)"/>
-  <rect x="8" y="8" width="744" height="244" rx="18" fill="url(#ambient)"/>
-  <path class="fine" d="M38 52h684M38 94h684M38 136h684M38 178h684M38 220h684M78 28v224M136 28v224M194 28v224M252 28v224M310 28v224M368 28v224M426 28v224M484 28v224M542 28v224M600 28v224M658 28v224M716 28v224"/>
+      <g transform="translate(34 25) scale(0.5)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
 
-  <rect x="30" y="32" width="430" height="196" rx="14" fill="url(#glass)" stroke="#30363d" stroke-width="2"/>
-  <path d="M48 62h392" stroke="#58a6ff" stroke-width="1" opacity=".22"/>
-  <circle cx="55" cy="51" r="4" fill="#8b949e" opacity=".55"/>
-  <circle cx="69" cy="51" r="4" fill="#8b949e" opacity=".7"/>
-  <circle cx="83" cy="51" r="4" fill="#58a6ff" opacity=".9"/>
-  <text class="txt" x="50" y="80" font-size="17">COZY TERMINAL TIMELINE</text>
-  <text class="txt muted" x="50" y="101" font-size="13">bear@server-room ~/research</text>
+    <text class="ui white" x="58" y="40" font-size="13" font-weight="700">Research Explorer</text>
 
-  <g transform="translate(50 116)">
-    <g class="rowA">
-      <rect x="0" y="0" width="386" height="25" rx="8" fill="url(#rowGlow)" stroke="#1f6feb" stroke-width="1" opacity=".8"/>
-      <text class="txt" x="18" y="17" font-size="14">&gt; load paper_notes.md</text>
-      <rect x="284" y="8" width="56" height="7" rx="4" fill="#58a6ff" filter="url(#blueGlow)"/>
-      <rect x="348" y="8" width="22" height="7" rx="4" fill="#15243a"/>
-    </g>
-    <g class="rowB" transform="translate(0 28)">
-      <rect x="0" y="0" width="386" height="25" rx="8" fill="#08111f" stroke="#30363d" stroke-width="1"/>
-      <text class="txt" x="18" y="17" font-size="14">&gt; prototype agent workflow</text>
-      <rect x="284" y="8" width="88" height="7" rx="4" fill="#58a6ff" filter="url(#blueGlow)"/>
-    </g>
-    <g class="rowC" transform="translate(0 56)">
-      <rect x="0" y="0" width="386" height="25" rx="8" fill="#08111f" stroke="#30363d" stroke-width="1"/>
-      <text class="txt" x="18" y="17" font-size="14">&gt; test multimodal ideas</text>
-      <rect x="284" y="8" width="70" height="7" rx="4" fill="#58a6ff" opacity=".72" filter="url(#blueGlow)"/>
-    </g>
-    <g class="rowD" transform="translate(0 84)">
-      <rect x="0" y="0" width="386" height="25" rx="8" fill="#08111f" stroke="#30363d" stroke-width="1"/>
-      <text class="txt" x="18" y="17" font-size="14">&gt; commit learning<tspan class="cursor">_</tspan></text>
-      <rect x="284" y="8" width="46" height="7" rx="4" fill="#58a6ff" opacity=".48"/>
-    </g>
-  </g>
+      <g class="crisp">
+        <rect x="662" y="25" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/>
+        <path d="M667 37h9" stroke="#fff" stroke-width="2"/>
+        <rect x="684" y="25" width="19" height="18" rx="3" fill="#1f75e5" stroke="#fff"/>
+        <rect x="689" y="30" width="9" height="8" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <rect x="706" y="25" width="19" height="18" rx="3" fill="#e8563f" stroke="#fff"/>
+        <path d="M711 30l9 8m0-8l-9 8" stroke="#fff" stroke-width="2"/>
+      </g>
 
-  <rect x="486" y="32" width="222" height="196" rx="14" fill="url(#glass)" stroke="#30363d" stroke-width="2"/>
-  <text class="txt" x="510" y="62" font-size="17">RESEARCH RADAR</text>
-  <text class="txt muted" x="510" y="82" font-size="12">AI signal monitor</text>
+    <rect x="26" y="49" width="708" height="240" fill="#ece9d8"/>
+    <rect x="26" y="49" width="708" height="24" fill="#f5f3e8"/>
+    <text class="ui" x="37" y="65" font-size="11">File</text><text class="ui" x="66" y="65" font-size="11">Edit</text><text class="ui" x="94" y="65" font-size="11">View</text>
+    <text class="ui" x="128" y="65" font-size="11">Favorites</text><text class="ui" x="184" y="65" font-size="11">Tools</text><text class="ui" x="220" y="65" font-size="11">Help</text>
+    <rect x="26" y="73" width="708" height="36" fill="#ece9d8" stroke="#c6c3b5"/>
+    <rect x="38" y="80" width="46" height="22" fill="#ece9d8" stroke="#9f9b8c"/>
+    <path d="M66 85l-8 6 8 6" fill="none" stroke="#237025" stroke-width="3"/>
+    <text class="ui muted" x="99" y="95" font-size="11">Address</text>
+    <rect x="145" y="80" width="566" height="22" fill="#fff" stroke="#7f9db9"/>
 
-  <ellipse cx="596" cy="211" rx="68" ry="12" fill="#010409" opacity=".28"/>
-  <g transform="translate(596 149)">
-    <circle r="64" fill="#06101e" stroke="#132a44" stroke-width="2"/>
-    <circle r="52" class="ring"/>
-    <circle r="37" class="ring"/>
-    <circle r="23" class="ring"/>
-    <path class="axis" d="M-64 0h128M0-64v128M-45-45l90 90M45-45l-90 90"/>
+      <g transform="translate(151 83) scale(0.42)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+
+    <text class="ui" x="173" y="95" font-size="11">My Computer &gt; Research</text>
+    <rect x="38" y="119" width="684" height="158" fill="#fff" stroke="#c7c7c7"/>
+    <text class="ui blue" x="52" y="142" font-size="13" font-weight="700">6 folders</text>
     <g>
-      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4.5s" repeatCount="indefinite"/>
-      <path d="M0 0L0-62A62 62 0 0 1 42-45Z" fill="url(#scanFill)"/>
-      <line x1="0" y1="0" x2="0" y2="-64" stroke="#9cdcfe" stroke-width="2" stroke-linecap="round" opacity=".86" filter="url(#blueGlow)"/>
-    </g>
-    <path d="M-44 24C-18-28 20-48 50-24" fill="none" stroke="#58a6ff" stroke-width="2" opacity=".42"/>
-    <path d="M-34-36C-4 20 30 44 54 22" fill="none" stroke="#58a6ff" stroke-width="2" opacity=".28"/>
-    <circle cx="-34" cy="-26" r="6" fill="url(#nodeGreen)" filter="url(#nodeGlow)">
-      <animate attributeName="opacity" values=".55;1;.55" dur="2.4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="38" cy="-16" r="6" fill="url(#nodeBlue)" filter="url(#nodeGlow)">
-      <animate attributeName="opacity" values=".45;1;.45" dur="2.4s" begin=".4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="28" cy="38" r="6" fill="url(#nodeGold)" filter="url(#nodeGlow)">
-      <animate attributeName="opacity" values=".5;1;.5" dur="2.4s" begin=".8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="-47" cy="18" r="6" fill="#58a6ff" filter="url(#nodeGlow)">
-      <animate attributeName="opacity" values=".5;1;.5" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="0" cy="0" r="5" fill="#d29922" filter="url(#nodeGlow)"/>
+      <g transform="translate(66 160) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="114" y="176" font-size="12" font-weight="700">AI Agents</text><text class="ui muted" x="114" y="194" font-size="10">Workflows and tool use</text></g><g>
+      <g transform="translate(268 160) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="316" y="176" font-size="12" font-weight="700">Multimodal Models</text><text class="ui muted" x="316" y="194" font-size="10">Vision and language</text></g><g>
+      <g transform="translate(470 160) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="518" y="176" font-size="12" font-weight="700">Machine Learning</text><text class="ui muted" x="518" y="194" font-size="10">Foundations and practice</text></g><g>
+      <g transform="translate(66 230) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="114" y="246" font-size="12" font-weight="700">Notes</text><text class="ui muted" x="114" y="264" font-size="10">Things worth remembering</text></g><g>
+      <g transform="translate(268 230) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="316" y="246" font-size="12" font-weight="700">Experiments</text><text class="ui muted" x="316" y="264" font-size="10">Small ideas in motion</text></g><g>
+      <g transform="translate(470 230) scale(0.9)" class="crisp">
+        <path d="M1 5h13l3 3h22v27H1z" fill="#d99618" stroke="#8a5b05"/>
+        <path d="M2 10h38v24H2z" fill="#ffd45c" stroke="#ad7b12"/>
+        <path d="M4 13h34" stroke="#fff1a6" stroke-width="2"/>
+      </g>
+    <text class="ui blue" x="518" y="246" font-size="12" font-weight="700">Open Source</text><text class="ui muted" x="518" y="264" font-size="10">Useful pieces to share</text></g>
   </g>
-
-  <g class="txt muted" font-size="11">
-    <text x="500" y="139">Agents</text>
-    <text x="642" y="128">MLLMs</text>
-    <text x="640" y="190">ML</text>
-    <text x="507" y="193">C++</text>
-    <text x="574" y="119">Python</text>
-  </g>
-
-  <rect class="spark" x="722" y="50" width="7" height="7" rx="2" fill="#58a6ff"/>
-  <rect class="spark" x="704" y="211" width="7" height="7" rx="2" fill="#58a6ff" opacity=".55"/>
 </svg>

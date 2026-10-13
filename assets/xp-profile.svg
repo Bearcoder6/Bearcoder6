@@ -362,8 +362,8 @@
   </svg>
   <svg x="0" y="911" width="760" height="194" viewBox="0 15 760 194" overflow="hidden">
 
-  <title id="mood-title">Bear mood: Sleepy</title>
-  <desc id="mood-desc">A privacy-friendly Windows XP style pixel bear widget showing the current mood as Sleepy.</desc>
+  <title id="mood-title">Bear mood: Debugging</title>
+  <desc id="mood-desc">A privacy-friendly Windows XP style pixel bear widget showing the current mood as Debugging.</desc>
   <defs>
     <linearGradient id="mood-titlebar" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#3f8cf3"/><stop offset=".5" stop-color="#0869e8"/><stop offset="1" stop-color="#0054c8"/></linearGradient>
     <filter id="mood-shadow" x="-20%" y="-30%" width="140%" height="170%"><feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#123765" flood-opacity=".38"/></filter>
@@ -396,12 +396,12 @@
         <rect x="34" y="91" width="65" height="25" class="fur-dark"/>
         <rect x="44" y="67" width="48" height="33" fill="#f8dcb7"/>
         <rect x="62" y="67" width="13" height="9" class="ink"/>
-        <path d="M43 61h18v5H43zm30 0h18v5H73zM56 81h24v5H56z" class="ink"/><text x="91" y="31" class="mini">Zzz</text>
+        <path d="M42 53h18v5H42zm31 0h18v5H73z" class="ink"/><rect x="48" y="61" width="7" height="8" class="ink"/><rect x="79" y="61" width="7" height="8" class="ink"/><rect x="56" y="82" width="25" height="5" class="ink"/><path d="M104 24h8v8h8v8h-8v8h-8v-8h-8v-8h8z" fill="#e85a35"/>
       </g>
 
     <text class="ui muted" x="283" y="85" font-size="12">TODAY'S STATUS</text>
-    <text class="ui blue" x="283" y="124" font-size="31" font-weight="700">Sleepy</text>
-    <text class="ui" x="283" y="153" font-size="14">Saving progress before a proper recharge.</text>
+    <text class="ui blue" x="283" y="124" font-size="31" font-weight="700">Debugging</text>
+    <text class="ui" x="283" y="153" font-size="14">Following the clue, one line at a time.</text>
     <text class="ui muted" x="283" y="181" font-size="11">updated quietly by GitHub Actions<tspan class="blink">_</tspan></text>
     <rect x="651" y="167" width="69" height="25" fill="#ece9d8" stroke="#7f7a6e"/>
     <rect x="654" y="170" width="63" height="19" fill="none" stroke="#fff"/>
